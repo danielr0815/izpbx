@@ -6,7 +6,7 @@ services:
     - stack.env
     volumes:
       - izpbx_mysql-data:/var/lib/mysql
-    networks:
+    networks: !override
       izpbx-ext:
         ipv4_address: 10.100.101.11
 
@@ -16,7 +16,7 @@ services:
     volumes:
       - izpbx-data:/data
     network_mode: !reset ""
-    networks:
+    networks: !override
       izpbx-ext:
         ipv4_address: 10.100.101.10
 
