@@ -2,8 +2,7 @@ version: '3'
 
 services:
   db:
-    env_file:
-      - stack.env
+    env_file: !reset "stack.env"
     volumes:
       - izpbx_mysql-data:/var/lib/mysql
     networks:
