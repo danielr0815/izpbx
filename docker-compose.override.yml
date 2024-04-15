@@ -13,11 +13,11 @@ services:
   izpbx:
     env_file:
     - stack.env
-  volumes:
-  - izpbx-data:/data
-  networks:
-    izpbx-ext:
-      ipv4_address: 10.100.101.10
+    volumes:
+    - izpbx-data:/data
+    networks:
+      izpbx-ext:
+        ipv4_address: 10.100.101.10
 
 networks:
   izpbx:
