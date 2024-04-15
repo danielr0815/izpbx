@@ -11,8 +11,7 @@ services:
         ipv4_address: 10.100.101.11
 
   izpbx:
-    env_file:
-      - stack.env
+    env_file: !reset "stack.env"
     volumes:
       - izpbx-data:/data
     network_mode: !reset ""
