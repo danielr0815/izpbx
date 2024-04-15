@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    env_file:
+    - stack.env
+    volumes:
+    - izpbx_mysql-data:/var/lib/mysql
+    networks:
+      izpbx-ext:
+        ipv4_address: 10.100.101.11
+
+  izpbx:
+    env_file:
+    - stack.env
+  volumes:
+  - izpbx-data:/data
+  networks:
+    izpbx-ext:
+      ipv4_address: 10.100.101.10
+
+networks:
+  izpbx:
+    driver: bridge
+  ## if you want run other izpbx deploy in the same docker host enable the macvlan interface driver
+  izpbx-ext:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+      - subnet: 10.100.101.0/24
+
+volumes:
+  izpbx_mysql-data:
+    external: true
+    name: izpbx_mysql-data
+
+  izpbx-data:
+    external: true
+    name: izpbx-data
