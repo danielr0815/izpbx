@@ -15,6 +15,7 @@ services:
     - stack.env
     volumes:
     - izpbx-data:/data
+    network_mode: !reset ""
     networks:
       izpbx-ext:
         ipv4_address: 10.100.101.10
