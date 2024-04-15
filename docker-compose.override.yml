@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     env_file: !override
-      - stack.env
+    - stack.env
     volumes:
       - izpbx_mysql-data:/var/lib/mysql
     networks:
@@ -12,7 +12,7 @@ services:
 
   izpbx:
     env_file: !override
-      - stack.env
+    - stack.env
     volumes:
       - izpbx-data:/data
     network_mode: !reset ""
