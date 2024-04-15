@@ -7,6 +7,7 @@ services:
     volumes:
       - izpbx_mysql-data:/var/lib/mysql
     networks: !override
+      izpbx: !reset ""
       izpbx-ext:
         ipv4_address: 10.100.101.11
 
@@ -17,6 +18,7 @@ services:
       - izpbx-data:/data
     network_mode: !reset ""
     networks: !override
+      izpbx: !reset ""
       izpbx-ext:
         ipv4_address: 10.100.101.10
 
