@@ -3,18 +3,18 @@ version: '3'
 services:
   db:
     env_file:
-    - stack.env
+      - stack.env
     volumes:
-    - izpbx_mysql-data:/var/lib/mysql
+      - izpbx_mysql-data:/var/lib/mysql
     networks:
       izpbx-ext:
         ipv4_address: 10.100.101.11
 
   izpbx:
     env_file:
-    - stack.env
+      - stack.env
     volumes:
-    - izpbx-data:/data
+      - izpbx-data:/data
     network_mode: !reset ""
     networks:
       izpbx-ext:
@@ -30,7 +30,7 @@ networks:
       parent: eth0
     ipam:
       config:
-      - subnet: 10.100.101.0/24
+        - subnet: 10.100.101.0/24
 
 volumes:
   izpbx_mysql-data:
