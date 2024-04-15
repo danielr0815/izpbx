@@ -32,8 +32,8 @@ services:
     ## source .env ; docker exec -it izpbx-db mysql_upgrade -u root -p$MYSQL_ROOT_PASSWORD
     command: --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
     restart: unless-stopped
-    env_file:
-    - .env
+    #env_file:
+    #- .env
     environment:
     - TZ
     - MYSQL_DATABASE
@@ -69,8 +69,8 @@ services:
     restart: unless-stopped
     depends_on:
     - db
-    env_file:
-    - .env
+    #env_file:
+    #- .env
     #secrets:
     #- IZPBX_MYSQL_PASSWORD
     #- IZPBX_MYSQL_ROOT_PASSWORD
